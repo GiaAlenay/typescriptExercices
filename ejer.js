@@ -28,3 +28,16 @@ const ejer2 = (l1, l2) => {
     return newArray.map(n => { return parseInt(n); });
 };
 console.log(ejer2(l1, l2));
+//exercise 3
+//Given an integer x, return true if x is a palindrome, and false otherwise.
+const input = 1214;
+const ejer3 = (input) => {
+    const newArray = input.toString().split('');
+    if (newArray.reverse().join('') === input.toString()) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+console.log(ejer3(input));

@@ -46,6 +46,24 @@ const ejer2=(l1:number[],l2:number[]):number[]=>{
     return newArray.map(n=>{return parseInt(n)})
 }
 
-console.log(ejer2(l1,l2))
+console.log(ejer2(l1,l2));
 
-;
+
+
+//exercise 3
+
+//Given an integer x, return true if x is a palindrome, and false otherwise.
+
+const input:number = 1214
+
+const ejer3=(input:number):boolean=>{
+    const newArray= input.toString().split('')
+
+    if (newArray.reverse().join('')===input.toString()) {
+        return true
+    }else{
+        return false
+    }
+}
+
+console.log(ejer3(input))
