@@ -41,3 +41,53 @@ const ejer3 = (input) => {
     }
 };
 console.log(ejer3(input));
+//exercise 4
+// Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+// Symbol       Value
+// I             1
+// V             5
+// X             10
+// L             50
+// C             100
+// D             500
+// M             1000
+const numeronormal = 12;
+const ejer4 = (num) => {
+    const romanian = num.toString().split('').map((n, i) => {
+        const nuco = parseInt(n) * (10 ** (num.toString().length - (i + 1)));
+        switch (true) {
+            case (nuco >= 1000):
+                return 'M';
+            case (nuco === 900):
+                return 'CM';
+            case (nuco >= 500):
+                return 'D';
+            case (nuco === 400):
+                return 'CD';
+            case (nuco >= 100):
+                return 'C';
+            case (nuco === 90):
+                return 'XC';
+            case (nuco >= 50):
+                return 'L';
+            case (nuco === 40):
+                return 'XL';
+            case (nuco >= 10):
+                return 'X';
+            case (nuco === 9):
+                return 'IX';
+            case (nuco >= 5):
+                return 'V';
+            case (nuco === 4):
+                return 'IV';
+            default:
+                let rep = '';
+                while (rep.length < nuco) {
+                    rep = rep + 'I';
+                }
+                return rep;
+        }
+    });
+    return romanian.join('');
+};
+console.log(ejer4(numeronormal));
