@@ -175,3 +175,11 @@ console.log(ejer5())
 // Return k after placing the final result in the first k slots of nums.
 
 // Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+
+
+
+
+//exercise 8
+
+// Given two strings needle and haystack, return the index of the first occurrence of needle in haystack,
+//  or -1 if needle is not part of haystack.
