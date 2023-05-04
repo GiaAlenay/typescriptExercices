@@ -23,7 +23,7 @@ const ejer1=(nums:number[],tagert:number):number[]=>{
     return result
 }
 
-console.log(ejer1(nums,target))
+// console.log(ejer1(nums,target))
 
 
 
@@ -47,7 +47,7 @@ const ejer2=(l1:number[],l2:number[]):number[]=>{
     return newArray.map(n=>{return parseInt(n)})
 }
 
-console.log(ejer2(l1,l2));
+// console.log(ejer2(l1,l2));
 
 
 
@@ -67,7 +67,7 @@ const ejer3=(input:number):boolean=>{
     }
 }
 
-console.log(ejer3(input))
+// console.log(ejer3(input))
 
 
 
@@ -126,7 +126,7 @@ const ejer4=(num:number):string=>{
     return romanian.join('')
 }
 
-console.log(ejer4(numeronormal))
+// console.log(ejer4(numeronormal))
 
 
 //exercise 5
@@ -149,37 +149,60 @@ const ejer5=():number[][]=>{
     })
 return [[1,2],[4,5]]
 }
-console.log(ejer5())
+// console.log(ejer5())
+ 
+//exercise 6
+
+// You are given a 0-indexed string word, consisting of lowercase English letters. You need to select one index and 7
+// remove the letter at that index from word so that the frequency of every letter present in word is equal.
+// Return true if it is possible to remove one letter so that the frequency of all letters in word are equal, and false otherwise.
+
+// Note:
+
+// The frequency of a letter x is the number of times it occurs in the string.
+// You must remove exactly one letter and cannot chose to do nothing.
  
 
-//ejer 6
+// Example 1:
 
-// Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
+// Input: word = "abcc"
+// Output: true
+// Explanation: Select index 3 and delete it: word becomes "abc" and each character has a frequency of 1.
+// Example 2:
 
-// Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
-
-// Return k after placing the final result in the first k slots of nums.
-
-
-
-
-
-
-//exercise 7
-// 27. Remove Element
-
-// Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of the elements may be changed.
-
-// Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
-
-// Return k after placing the final result in the first k slots of nums.
-
-// Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.
+// Input: word = "aazz"
+// Output: false
+// Explanation: We must delete a character, so either the frequency of "a" is 1 and the frequency of "z"
+// is 2, or vice versa. It is impossible to make all present letters have equal frequency.
 
 
+const ejer6=(word:string):boolean=>{
+    let result:boolean=true;
+   const contador:[string, number][]=[]
+   let contarFrequencia:number=0
+   word.split('').map((w:string)=>{
+        const encontrar= contador.findIndex(([k,v])=> k===w )
+      
+        if (encontrar===-1) {
+            contador.push([w,1])
+        }else{
+            contador[encontrar]=[contador[encontrar][0],contador[encontrar][1]+1]
+        }
+    })
+    contador.map((c:[string,number])=>{
+        if (c[1]>2) {
+            result=false
+        }
+        if (c[1]==2) {
+            contarFrequencia+=1
+        }
+    })
+    if (contarFrequencia>1) {
+        result=false
+    }
+    
+    
+     return result
+}
 
-
-//exercise 8
-
-// Given two strings needle and haystack, return the index of the first occurrence of needle in haystack,
-//  or -1 if needle is not part of haystack.
+console.log(ejer6('abcc'))
